@@ -1,35 +1,93 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+
+let board = [
+  ["1", "-", "-"],
+  ["-", "-", "-"],
+  ["-", "-", "-"],
+];
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [turn, setTurn] = useState("X");
+
+  const handleClick = (e) => {
+    if (e.target.innerText) return;
+
+    e.target.innerText = turn;
+
+    fillBoard(e);
+
+    checkWin(e);
+
+    turn === "X" ? setTurn("O") : setTurn("X");
+
+    return;
+  };
+
+  const checkWin = () => {};
+
+  const fillBoard = (e) => {
+    for (let i = 0; i < board.length; i++) {
+      for (let j = 0; j < 3; j++) {
+        //if(board[i][j] === "-" &&  ){
+        //}
+      }
+    }
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <main>
+        <h1>Tic Tac Toe</h1>
+        <div className="grid grid-cols-3 grid-rows-3 border-2 border-black w-2/5 mx-auto mt-20 h-[45rem]">
+          <button
+            className="border border-black"
+            onClick={handleClick}
+            id="1"
+          ></button>
+          <button
+            className="border border-black"
+            onClick={handleClick}
+            id="2"
+          ></button>
+          <button
+            className="border border-black"
+            onClick={handleClick}
+            id="3"
+          ></button>
+          <button
+            className="border border-black"
+            onClick={handleClick}
+            id="4"
+          ></button>
+          <button
+            className="border border-black"
+            onClick={handleClick}
+            id="5"
+          ></button>
+          <button
+            className="border border-black"
+            onClick={handleClick}
+            id="6"
+          ></button>
+          <button
+            className="border border-black"
+            onClick={handleClick}
+            id="7"
+          ></button>
+          <button
+            className="border border-black"
+            onClick={handleClick}
+            id="8"
+          ></button>
+          <button
+            className="border border-black"
+            onClick={handleClick}
+            id="9"
+          ></button>
+        </div>
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
