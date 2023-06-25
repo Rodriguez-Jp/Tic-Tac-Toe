@@ -30,16 +30,7 @@ function App() {
   };
 
   const handleRestart = () => {
-    setTurn("X");
-    setWinner("");
-    setGameOver(false);
-    setDraw(false);
-
-    board = [
-      ["-", "-", "-"],
-      ["-", "-", "-"],
-      ["-", "-", "-"],
-    ];
+    window.location.reload(false);
   };
 
   const checkDraw = () => {
@@ -67,7 +58,6 @@ function App() {
       ) {
         setWinner(turn);
         setGameOver(true);
-        console.log("Winner is: " + winner);
         return;
       }
     }
@@ -95,7 +85,6 @@ function App() {
       ) {
         setWinner(turn);
         setGameOver(true);
-        console.log("Winner is: " + winner);
         return;
       }
     }
